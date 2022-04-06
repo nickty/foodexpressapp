@@ -1,9 +1,10 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { useRef, useState } from 'react'
 import Header from '../../components/Header'
-import { colors } from '../../global/styles'
+import { colors, parameters, titleHead } from '../../global/styles'
 import * as Animatable from 'react-native-animatable'
-import { Icon } from 'react-native-elements'
+import { Button, ButtonGroup, Icon, SocialIcon } from 'react-native-elements'
+
 
 const SignInScreen = ({title}) => {
 
@@ -13,10 +14,11 @@ const SignInScreen = ({title}) => {
     const textInput2 = useRef(2)
 
   return (
+      
     <View style={styles.container}>
       <Header title="My Account" type='arrow-left' />
       <View style={{marginLeft: 20, marginTop: 10}}>
-        <Text style={title}>Sign-In</Text>
+        <Text style={titleHead}>Sign-In</Text>
       </View>
       <View style={{alignItems: "center", marginTop: 10}}>
           <Text style={styles.text1}>Please enter email and password</Text>
@@ -38,7 +40,34 @@ const SignInScreen = ({title}) => {
             </Animatable.View>
           </View>
           
+
       </View>
+        <View style={{marginHorizontal: 20, marginTop: 15}}>
+              <Button title="SIGN IN" buttonStyle={parameters.styleedButton} titleStyle={parameters.buttonTitle} />
+        </View>
+        <View style={{alignItems: 'center', marginTop: 20}}>
+            <Text style={{...styles.text1, textDecorationLine: "underline"}}>Forgot Password?</Text>
+        </View>
+
+        <View style={{alignItems: 'center', marginTop: 20, marginBottom: 20}}>
+            <Text style={{fontSize: 20, fontWeight: 'bold'}}>OR</Text>
+        </View>
+
+        <View style={{marginHorizontal: 10, marginTop: 10}}>
+            <SocialIcon onPress={() => {}} title='Sing in With Facebook' button type='facebook' style={styles.SocialIcon} />
+        </View>
+        <View style={{marginHorizontal: 10, marginTop: 10}}>
+            <SocialIcon onPress={() => {}} title='Sing in With Google' button type='google' style={styles.SocialIcon} />
+        </View>
+
+        <View style={{marginTop: 25, marginLeft:20}}>
+            <Text style={{...styles.text1}}>New To GJC</Text>
+        </View>
+
+        <View style={{alignItems: 'flex-end', marginHorizontal: 20}}>
+            <Button title="Create an account" buttonStyle={styles.createButton} titleStyle={styles.createButtonTitle} />
+        </View>
+
     </View>
   )
 }
@@ -71,5 +100,27 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         alignItems: 'center',
         paddingLeft: 16
+    }, 
+    SocialIcon: {
+        borderRadius: 12,
+        height: 50
+    },
+    createButton: {
+        backgroundColor: 'white',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 12,
+        borderWidth: 1,
+        borderColor: "#ff8c52",
+        height:40,
+        paddingHorizontal:20
+    },
+    createButtonTitle: {
+        color: '#ff8c52',
+        fontSize: 16,
+        fontWeight: 'bold',
+        alignItems: 'center',
+        justifyContent: 'center', 
+        marginTop: -3
     }
 })
