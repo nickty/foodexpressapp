@@ -14,3 +14,5 @@ export const colors = {
 export const parameters = {
     headerHight : 40,
 }
+
+export const title = {}
